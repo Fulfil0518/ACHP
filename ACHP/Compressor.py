@@ -129,7 +129,10 @@ class CompressorClass():
         s1_actual = AS.smass() #[J/kg-K]
         h1_actual = AS.hmass() #[J/kg]
         v_actual = 1 / AS.rhomass() #[m^3/kg]
-        F = 0.75
+        #        Fv = Volumetric efficiency correction factor – the correction factor will vary based on volumetric
+        # efficiency of the compression technology used, a value of one (1) can be used for an
+        # approximation. Contact the manufacturer for a more precise value.
+        F = 0.75 # default vale was 0.75
         mdot = (1 + F * (v_map / v_actual - 1)) * mdot_map
         
         AS.update(CP.PSmass_INPUTS, P2, s1_map)
